@@ -31,7 +31,20 @@ class Bot(Resource):
 			data = r.json()
 			return data.get('result')
 
+class Notification(Resource):
+	def post(self):
+		if request.headers['Content-Type'] == 'application/json':
+			kind = request.json['jsons']
+			print(kind)
+			var params = {"kind" : kind}
+
+			# NodeのAPIのNotificationを送る
+			r = s.post(url="", params=params)
+			# successしているかどうか
+			return "200 OK"
+
 api.add_resource(Bot, '/api/bot')
+api.add_resource(Notification, '/api/notification')
 
 @app.after_request
 
@@ -44,5 +57,5 @@ def after_request(response):
 if __name__ == '__main__':
 	ip = socket.gethostbyname(socket.gethostname())
 	print('input your choregraphe [post] box parameter >>> ' + ip)
-	app.debug=True
+	# app.debug=True
 	app.run(host=ip)
