@@ -1,5 +1,14 @@
 # 500 halloween hackathonの制作物
 
+# /apiのリクエスト(JSON Format)
+| key | value(Type) | remarks | example |
+|:--:|:--:|:--:|:--:|
+| msg | String | tweet内容 | "hello, halloween" |
+| delay_time | String | 遅延が予想される時間 | "10m" |  
+| contents | String | Youtube動画であるかスライドショーであるか | "movie" |  
+| id | String | 独自アカウントのID | "tekitou_ni_kimeta_id" |  
+
+
 # /apiのレスポンス(JSON Format)  
 | key | value(Type) | remarks |  
 |:--:|:--:|:--:|
