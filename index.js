@@ -27,7 +27,13 @@ app.use(bodyParser.urlencoded({extended : true }));
 app.use(bodyParser.json());
 app.use(morgan('short'));
 
-app.post('/api', function(req, res){
+//その人が今無駄な時間を過ごしているかどうかのAPI
+// app.get('/api/check', function(req, res){
+
+// });
+
+// Clientからポストされるユーザデータを受け取りツイートするAPI
+app.post('/api/user_data', function(req, res){
 	console.log(req.body);
 
 	var id = req.body.id;
@@ -35,16 +41,8 @@ app.post('/api', function(req, res){
 	var contents = req.body.contents;
 	var message = req.body.msg;
 
-	// console.log('id :' + id);
-	// console.log('delay :' + delay_time);
-	// console.log('contents :' + contents);
-	console.log('message :' + message);
-
-
-	//posting twitter
 	client.post('statuses/update',
 		{
-			// status: 'へろー(テスト)'
 			status : message + " " + tweet_tag
 		},
 		function(error, tweet, response){
