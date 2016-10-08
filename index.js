@@ -28,13 +28,23 @@ app.use(bodyParser.json());
 app.use(morgan('short'));
 
 //その人が今無駄な時間を過ごしているかどうかのAPI
-// app.get('/api/check', function(req, res){
+app.get('/api/check', function(req, res){
+	var json = {
+		check : true
+	};
+	res.end(JSON.stringify(json));
+});
 
-// });
+app.get('/api/check', function(req, res) {
+	var json = {check : false};
+	res.end(JSON.stringify(json));
+});
 
 // Clientからポストされるユーザデータを受け取りツイートするAPI
 app.post('/api/user_data', function(req, res){
-	console.log(req.body);
+
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
 	var id = req.body.id;
 	var delay_time = req.body.delay_time;
@@ -42,14 +52,14 @@ app.post('/api/user_data', function(req, res){
 	var message = req.body.msg;
 
 	client.post('statuses/update',
-		{
-			status : message + " " + tweet_tag
-		},
-		function(error, tweet, response){
-			if (error) {
-				console.log('tweet is error : ' + error);
-			}
-		});
+	{
+		status : message + " " + tweet_tag
+	},
+	function(error, tweet, response){
+		if (error) {
+			console.log('tweet is error : ' + error);
+		}
+	});
 
 	res.contentType('application/json');
 	var json = {
