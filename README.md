@@ -17,7 +17,6 @@
 
 
 # /api/checkのレスポンス(JSON Format)  
-ユーザが今無駄な時間を過ごしているかどうかのAPI  
 | key | value(Type) | remarks |  example |
 |:--:|:--:|:--:|:--:|
 | check | Bool | テスト用 | true,false |  
