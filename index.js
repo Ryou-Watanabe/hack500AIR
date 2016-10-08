@@ -25,15 +25,26 @@ app.use(morgan('short'));
 
 app.post('/api', function(req, res){
 
+	var id = req.body.id;
+	var delay_time = req.body.delay_time;
+	var contents = req.body.contents;
+	var message = req.body.msg;
+
+	console.log('id :' + id);
+	console.log('delay :' + delay_time);
+	console.log('contents :' + contents);
+	console.log('message :' + message);
+
+
 	//posting twitter
-	client.post('statuses/update',
-		{status: 'へろー(テスト)'},
-		function(error, tweet, response){
-			console.log(response.statusCode);
-			if (! error) {
-				console.log('tweet is error : ' + error);
-			}
-		});
+	// client.post('statuses/update',
+	// 	{status: 'へろー(テスト)'},
+	// 	function(error, tweet, response){
+	// 		console.log(response.statusCode);
+	// 		if (! error) {
+	// 			console.log('tweet is error : ' + error);
+	// 		}
+	// 	});
 
 	res.contentType('application/json');
 	var json = {
