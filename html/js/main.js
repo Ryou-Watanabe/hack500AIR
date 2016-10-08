@@ -23,9 +23,6 @@ $(function(){
       },
       error: function() {
           alert('Server Error. Please try again later.');
-          // $("#XMLHttpRequest").html("XMLHttpRequest : " + XMLHttpRequest.status);
-          //  $("#textStatus").html("textStatus : " + textStatus);
-          //  $("#errorThrown").html("errorThrown : " + errorThrown.message);
       },
       complete: function() {
       }
