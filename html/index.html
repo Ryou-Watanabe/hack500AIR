@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <title>タイトル(仮)</title>
   </head>
   <body>
-    <form class="" action="index.html" method="post">
-      <div>
+    <form name="form1" action="index.html" method="post">
+      <div class="post">
           <label for="msg">Message:</label>
-          <textarea id="msg"></textarea>
+          <textarea id="msg" rows="4" cols="40"></textarea>
       </div>
       <div class="">
-        遅延時間：<select name="time">
+        遅延時間：<select name="delay_time" id="delay_time">
         <option>1m</option>
         <option>3m</option>
         <option>5m</option>
@@ -22,7 +24,7 @@
       </select><br>
       </div>
     <div class="">
-      コンテンツ：<select name="content">
+      コンテンツ：<select name="contents" id="contents">
       <option>アニメ</option>
       <option>面白動画</option>
       <option>画像</option>
@@ -30,13 +32,14 @@
       <option>その他</option>
     </select><br>
     </div>
-    <div>
-        <label for="userID">User ID:</label>
-        <input type="text" id="userID" />
+    <div class="post">
+        <label for="user_id">User ID:</label>
+        <input type="text" id="user_id" name="user_id"/>
     </div>
     <div class="button">
-        <button type="submit" value="send">Send</button>
+        <button type="submit" value="send" id="postForm" >Send</button>
     </div>
     </form>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
