@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>タイトル(仮)</title>
+  </head>
+  <body>
+    <form class="" action="index.html" method="post">
+      <div>
+          <label for="msg">Message:</label>
+          <textarea id="msg"></textarea>
+      </div>
+      <div class="">
+        遅延時間：<select name="time">
+        <option>1m</option>
+        <option>3m</option>
+        <option>5m</option>
+        <option>10m</option>
+        <option>30m</option>
+        <option>1h</option>
+      </select><br>
+      </div>
+    <div class="">
+      コンテンツ：<select name="content">
+      <option>アニメ</option>
+      <option>面白動画</option>
+      <option>画像</option>
+      <option>漫画</option>
+      <option>その他</option>
+    </select><br>
+    </div>
+    <div>
+        <label for="userID">User ID:</label>
+        <input type="text" id="userID" />
+    </div>
+    <div class="button">
+        <button type="submit" value="send">Send</button>
+    </div>
+    </form>
+  </body>
+</html>
