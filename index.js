@@ -36,9 +36,9 @@ app.use(morgan('short'));
 // });
 
 //ユーザの攻撃操作を受け付ける
-app.post('/api/attack', function(req, res){
+// app.post('/api/attack', function(req, res){
 
-});
+// });
 
 app.listen(PORT, function(){
 	console.log('server is running' + ' :' + PORT);
