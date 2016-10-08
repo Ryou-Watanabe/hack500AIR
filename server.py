@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import os
 import socket
@@ -15,29 +16,33 @@ api = Api(app)
 	# return 'index.html'
 
 class Bot(Resource):
-	# def get(self):
-	# 	return {'message' : 'hello'}
-
 	def post(self):
-		# if request.headers['Content-Type'] != 'application/json':
-		# json = request.args['messages']
-		print(request.json['message'])
-		s = requests.session()
-		api_key = "2d798014ce4123136c50"
-		url = "https://chatbot-api.userlocal.jp/api/chat?"
+		if request.headers['Content-Type'] == 'application/json':
+			message = request.json['message']
+			s = requests.session()
+			api_key = "2d798014ce4123136c50"
+			url = "https://chatbot-api.userlocal.jp/api/chat?"
 
-		params = {"message" : message,
-		"key" : api_key}
+			params = {"message" : message,
+			"key" : api_key}
 
-		r = s.post(url, params=params)
-		text = r.text
-		text = json.loads(text)
-
-		return text.get('result')
+			r = s.post(url=url, params=params)
+			r.text
+			data = r.json()
+			return data.get('result')
 
 api.add_resource(Bot, '/api/bot')
 
+@app.after_request
+
+def after_request(response):
+  response.headers.add('Access-Control-Allow-Origin', '*')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+  return response
+
 if __name__ == '__main__':
 	ip = socket.gethostbyname(socket.gethostname())
-	print('input your choregraphe [post] box parameter >>> ' + ip + 'port :')
+	print('input your choregraphe [post] box parameter >>> ' + ip)
+	app.debug=True
 	app.run(host=ip)
