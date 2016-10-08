@@ -34,12 +34,12 @@ class Bot(Resource):
 class Notification(Resource):
 	def post(self):
 		if request.headers['Content-Type'] == 'application/json':
-			kind = request.json['jsons']
-			print(kind)
-			var params = {"kind" : kind}
+			kind = request.json['kind']
+			# print(kind)
+			params = {"kind" : kind}
 
 			# NodeのAPIのNotificationを送る
-			r = s.post(url="", params=params)
+			# r = s.post(url="", params=params)
 			# successしているかどうか
 			return "200 OK"
 
