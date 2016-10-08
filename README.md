@@ -1,6 +1,6 @@
 # 500 halloween hackathonの制作物
 
-# /apiのリクエスト(JSON Format)
+# POST /apiのリクエスト(JSON Format)
 | key | value(Type) | remarks | example |
 |:--:|:--:|:--:|:--:|
 | msg | String | tweet内容 | "hello, halloween" |
@@ -9,11 +9,17 @@
 | id | String | 独自アカウントのID | "tekitou_ni_kimeta_id" |  
 
 
-# /apiのレスポンス(JSON Format)  
+# /api/user_dataのレスポンス(JSON Format)  
 | key | value(Type) | remarks |  
 |:--:|:--:|:--:|
 | comment | String | テスト用 |  
 | contents_url | String | Youtube動画用 |  
+
+
+# GET /api/checkのレスポンス(JSON Format)  
+| key | value(Type) | remarks |  example |
+|:--:|:--:|:--:|:--:|
+| check | Bool | テスト用 | true,false |  
 
 ## curlでAPIをテストする際の例  
 
