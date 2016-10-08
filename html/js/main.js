@@ -1,36 +1,34 @@
-// function FormSubmit() {
-//   alert("ボタンが押されました");
-//
-//   var target = document.getElementById("postForm");
-//   target.method = "post";
-//   target.submit();
-// }
-
 $(function(){
 		$("#postForm").click( function(){
-      // alert("ボタンが押されました");
 
-      var timeSelIndex = document.getElementById("delay_time").selectedIndex;
-      var contentSelIndex = document.getElementById("contents").selectedIndex;
-			var url = '172.24.245.250:8080/api';
-      console.log("hello");
+      var timeSelIndex = document.getElementById("delay_time").value;
+      var contentSelIndex = document.getElementById("contents").value;
+      // var url = 'http://172.24.245.214:8080/api/check';
+      var url = 'http://172.24.245.214:8080/api/user_data';
+      var d_time;
 
 			var jsondata =  {
         msg: $(".post #msg").val(),
         delay_time: timeSelIndex,
-        // contents: document.getElementById("contents").selectedIndex,
         contents: contentSelIndex,
-				id: $(".post #user_id").val(),
+				id: $(".post #user_id").val()
 			};
-
-			alert(JSON.stringify(jsondata));
-
-      $.post(url,
-		        jsondata,
-		        function (result) {
-					$("#post textarea").text(''+JSON.stringify(result)+'');
-		        },
-		        "json"
-		    );
-		})
-	})
+      $.ajax({
+       type: 'post',
+       url: url,
+       data: jsondata,
+       dataType:'json',
+       success: function(json_data) {
+         console.log(json_data);
+      },
+      error: function() {
+          alert('Server Error. Please try again later.');
+          // $("#XMLHttpRequest").html("XMLHttpRequest : " + XMLHttpRequest.status);
+          //  $("#textStatus").html("textStatus : " + textStatus);
+          //  $("#errorThrown").html("errorThrown : " + errorThrown.message);
+      },
+      complete: function() {
+      }
+    })
+	});
+})
