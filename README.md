@@ -1,6 +1,5 @@
 # 500 halloween hackathonの制作物
 
-
 # /apiのレスポンス(JSON Format)  
 | key | value(Type) | remarks |  
 |:--:|:--:|:--:|
