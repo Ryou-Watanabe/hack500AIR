@@ -5,7 +5,7 @@
 |:--:|:--:|:--:|:--:|
 | message | String | 内容 | "おはよう"  
 
-# /api/user_dataのレスポンス(JSON Format)  
+# /api/bot のレスポンス(JSON Format)  
 | key | value(Type) | remarks |  
 |:--:|:--:|:--:|
 | message | String | APIから返ってきたmessageそのまま |  
