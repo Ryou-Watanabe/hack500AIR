@@ -5,7 +5,7 @@
 |:--:|:--:|:--:|:--:|
 | msg | String | tweet内容 | "hello, halloween" |
 | delay_time | String | 遅延が予想される時間 | "10m" |  
-| contents | String | Youtube動画であるかスライドショーであるか | "movie" |  
+| contents | String | Youtube動画であるかスライドショーであるか | "movie", "anime", "news" |  
 | id | String | 独自アカウントのID | "tekitou_ni_kimeta_id" |  
 
 
