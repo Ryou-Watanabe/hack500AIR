@@ -1,6 +1,6 @@
 # 500 halloween hackathonの制作物
 
-# /apiのリクエスト(JSON Format) - POST
+# POST /apiのリクエスト(JSON Format)
 | key | value(Type) | remarks | example |
 |:--:|:--:|:--:|:--:|
 | msg | String | tweet内容 | "hello, halloween" |
@@ -16,7 +16,7 @@
 | contents_url | String | Youtube動画用 |  
 
 
-# /api/checkのレスポンス(JSON Format) - GET  
+# GET /api/checkのレスポンス(JSON Format)  
 | key | value(Type) | remarks |  example |
 |:--:|:--:|:--:|:--:|
 | check | Bool | テスト用 | true,false |  
