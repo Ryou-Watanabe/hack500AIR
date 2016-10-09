@@ -45,7 +45,7 @@
 
     <div class="overlay">
 
-      <p>Button</p>
+      <p>Attack</p>
 
     </div>
   </div>
@@ -96,8 +96,34 @@
         $('#EXP').text(Number(exp) + 200);
         money_bar.style.width = $('#money').text()+"%";
         exp_bar.style.width = $('#EXP').text()/40+"%";
+        send();
       }
     });
+
+    function send()
+    {
+    	var url = 'http://172.24.245.214:5000/api/server-notification';
+
+    	var jsondata =  {
+         "kind" : "Face_Charactor"
+    	};
+    	$.ajax({
+    	 type: 'post',
+    	 url: url,
+    	 contentType:'application/json',
+    	 data: JSON.stringify(jsondata),
+    	 dataType:'json',
+    	 success: function(json_data) {
+    		 console.log(json_data);
+    	},
+    	error: function() {
+    			alert('Server Error. Please try again later.');
+    	},
+    	complete: function() {
+    	}
+    })
+    }
+
 
   </script>
   </html>
