@@ -4,29 +4,31 @@
   // Module to create native browser window.
   const BrowserWindow = electron.BrowserWindow
 
+  const postKind = "Bot_Chat"
+
 
 // setting server
-  const express = require('express');
-  const bodyParser = require('body-parser');
-  const os = require('os');
-  const expressApp = express();
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const os = require('os');
+// const expressApp = express();
 
-  expressApp.use(bodyParser.urlencoded({extended : true}));
-  expressApp.use(bodyParser.json());
+// expressApp.use(bodyParser.urlencoded({extended : true}));
+// expressApp.use(bodyParser.json());
 
-  expressApp.use(express.static("public"));
-  const PORT = 8080;
+// const PORT = 8080;
 
-  expressApp.post('/api/client-attack', function(req, res){
-    print("post");
-    const notifi_kind = req.body['kind'];
-    console.log(notifi_kind);
-    res.end("200 OK")
-  });
+// expressApp.post('/api/client-attack', function(req, res){
+//   print("post");
+//   const notifi_kind = req.body['kind'];
+//   postKind = notifi_kind
+//   console.log(notifi_kind);
+//   res.end("200 OK")
+// });
 
-  expressApp.listen(PORT, function(req, res){
+// expressApp.listen(PORT, function(req, res){
 
-  });
+// });
 
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
@@ -36,29 +38,45 @@
     var Screen = require('screen');
     var {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
 
-    // Create the browser window.
-    mainWindow = new BrowserWindow({
-      left: 0,
-      top: 0,
-      width: width,
-      height: height,
-      frame: false,
-      show: true,
-      resizable: false,
-      'always-on-top': true,
-      transparent: true
-    })
+    if (postKind === "Bot_Chat") {
+
+      // Create the browser window.
+      mainWindow = new BrowserWindow({
+        left: 0,
+        top: 0,
+        width: width,
+        height: height,
+        frame: true,
+        show: true,
+        resizable: false,
+        'always-on-top': true,
+        transparent: false
+      })
+      mainWindow.loadURL(`file://${__dirname}/chat-bot-html/index.html`)
+    }else {
+
+      // Create the browser window.
+      mainWindow = new BrowserWindow({
+        left: 0,
+        top: 0,
+        width: width,
+        height: height,
+        frame: false,
+        show: true,
+        resizable: false,
+        'always-on-top': true,
+        transparent: true
+      })
+      mainWindow.loadURL(`file://${__dirname}/index.html`)
+    }
 
     mainWindow.setIgnoreMouseEvents(false);
 
         // Setting creating Windows position
         mainWindow.setPosition(0,0);
 
-    // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/index.html`)
-
     // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {

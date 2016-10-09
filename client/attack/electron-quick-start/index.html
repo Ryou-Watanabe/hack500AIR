@@ -7,7 +7,6 @@
   <title>Electron Do Attack</title>
 
   <link rel="stylesheet" type="text/css" href="index.html.css">
-  <script type="text/javascript" src="jquery.zoomooz.min.js"></script>
 
 </head>
 <body>
@@ -15,7 +14,6 @@
 </body>
 
 <script>
-    // You can also require other files to run in this process
     require('./renderer.js')
 
     const $ = require('jquery');
@@ -31,7 +29,6 @@
               rect.animate({'z-index': 1}, {duration:1000, step: function(num) {
                 $(this).css({transform: 'rotate(' + (num * 360) + 'deg) scale(' +num * 1.5+ ') translate(50%,50%)'});
               }, complete: function(){
-                // rect.zoomTarget().click();
                 rect.hide();
               }});
             });

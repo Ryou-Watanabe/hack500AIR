@@ -21,8 +21,10 @@ class Bot(Resource):
 			api_key = "2d798014ce4123136c50"
 			url = "https://chatbot-api.userlocal.jp/api/chat?"
 
-			params = {"message" : message,
-			"key" : api_key}
+			params = {
+			"message" : message,
+			"key" : api_key
+			}
 
 			r = s.post(url=url, params=params)
 			r.text
@@ -33,12 +35,14 @@ class Notification(Resource):
 	def post(self):
 		if request.headers['Content-Type'] == 'application/json':
 			kind = request.json['kind']
-			# print(kind)
-			params = {"kind" : kind}
-
-			r = s.post(url="http://172.24.245.214.:8080/api/client-attack", params=params)
-			print("electron node response : " + r.responsText)
-			return "200 OK"
+			print('kind : ' + kind)
+			params = {
+			"kind" : kind
+			}
+			s = requests.session()
+			r = requests.post(url="http://172.24.245.214:8080/api/client-attack", data=params)
+			print("post")
+			return json.dumps({"message" : "finish"})
 
 class GetMetroDelay(Resource):
 	def get(self):
@@ -73,6 +77,6 @@ def after_request(response):
 
 if __name__ == '__main__':
 	ip = socket.gethostbyname(socket.gethostname())
-	print('input your choregraphe [post] box parameter >>> ' + ip)
-	# app.debug=True
+	# print('input your choregraphe [post] box parameter >>> ' + ip)
+	app.debug=True
 	app.run(host=ip)
