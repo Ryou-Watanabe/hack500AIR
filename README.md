@@ -10,12 +10,12 @@
 |:--:|:--:|:--:|
 | message | String | APIから返ってきたmessageそのまま |  
 
-# /api/notification のレスポンス(JSON FORMAT)
+# /api/server-notification のレスポンス(JSON FORMAT)
 | key | value(Type) | remarks |  example |
 |:--:|:--:|:--:|:--:|
 | kind | String |  | "Face_Charactor","Bot_Chat" |
 
-# 攻撃される側のAPIについて [IP Address]/api/Notiifcation (JSON FORMAT)
+# 攻撃される側のAPIについて [IP Address]/api/server-notiifcation (JSON FORMAT)
 | key | value(Type) | remarks | example |
 |:--:|:--:|:--:|:--:|
 | message | String |  | "Face_Charactor","Bot_Chat" |  
