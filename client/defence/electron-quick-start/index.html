@@ -2,11 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Hello World!</title>
+  <title>Push Attack!!</title>
 
   <script>
     window.jQuery = window.$ = require('jquery');
   </script>
+  <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -14,8 +16,44 @@
 
 </head>
 <body>
-  <!-- Modal -->
-  <div class="modal fade">
+  <div class="gauge_all_wrap">
+    <ul class="gauge_wrap3">
+      <li>
+        <div class="gauge_bg"><div class="gauge_main" id="gauge_money" style="width: 100%;"></div></div>
+  <div class="gauge_num"><span id="money" value="100">100</span><span>/100</span></div>
+  <div class="gauge_ttl"><span>Money</span></div>
+  </li>
+  <li>
+  <div class="gauge_bg"><div class="gauge_main gauge_exp" id="gauge_exp" style="width: 50%;"></div></div>
+  <div class="gauge_num"><span id="EXP" value="2000">2000</span><span>/4000</span></div>
+  <div class="gauge_ttl"><span class="ttl_exp">EXP</span></div>
+  </li>
+  </ul>
+  <div class="symbol_level"><span class="level_ttl">LV.</span><span class="level_num">23</span></div>
+  </div>
+
+
+  <div class="circlePositioner">
+  <div class="mainCircle" id="attack">
+
+    <div class="spinningContainer">
+
+      <div class="leftContainer"></div>
+      <div class="rightContainer"></div>
+
+    </div>
+
+    <div class="overlay">
+
+      <p>Button</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- <div class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -23,7 +61,6 @@
           <h4 class="modal-title">Push Attack!!</h4>
         </div>
         <div class="modal-body">
-          <!-- modal window body -->
           <label for="usr">Money : </label>
           <input type="text" id="money" class="form-control" value="100">
 
@@ -31,26 +68,34 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div> -->
 </body>
 
 <script>
     // You can also require other files to run in this process
     require('./renderer.js')
-    $(function(){
-      $('.modal').modal('show');
-    });
+    // $(function(){
+    //   $('.modal').modal('show');
+    // });
 
     $('#attack').click(function(){
-      var have = $('#money').val();
-      if (have -15 < 0) {
+      // var have = $('#money').val();
+      var money = $('#money').text();
+      var exp = $('#EXP').text();
+      var money_bar = document.getElementById("gauge_money");
+      var exp_bar = document.getElementById("gauge_exp");
+
+      if (money -15 < 0) {
         alert('Moneyが足りません. また、ムダ時間を貯めてください.');
       } else {
-        $('#money').val(have - 15);
+        // $('#money').text = $('#money').text - 15;
+        $('#money').text(money - 15);
+        $('#EXP').text(Number(exp) + 200);
+        money_bar.style.width = $('#money').text()+"%";
+        exp_bar.style.width = $('#EXP').text()/40+"%";
       }
     });
 
