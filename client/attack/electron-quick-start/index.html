@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
+  <title>Electron Do Attack</title>
+
+  <link rel="stylesheet" type="text/css" href="index.html.css">
+  <script type="text/javascript" src="jquery.zoomooz.min.js"></script>
+
+</head>
+<body>
+  <h1 id="rect">( ◜◡◝ )</h1>
+</body>
+
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+
+    const $ = require('jquery');
+
+    $(document).ready(function(){
+      var rect = $('#rect');
+      rect.css({position:"absolute",top:0});
+      rect.animate({top: $(document).height() - rect.height() * 2 + "px"}, 1000, function(){
+        rect.animate({left: $(document).width() - rect.width() + "px"}, 1000, function(){
+          rect.animate({top: "0"}, 1000, function(){
+            rect.animate({left : "0"}, 1000 ,function(){
+              //下、右、上、左
+              rect.animate({'z-index': 1}, {duration:1000, step: function(num) {
+                $(this).css({transform: 'rotate(' + (num * 360) + 'deg) scale(' +num * 1.5+ ') translate(50%,50%)'});
+              }, complete: function(){
+                // rect.zoomTarget().click();
+                rect.hide();
+              }});
+            });
+          });
+        });
+      });
+    });
+
+  </script>
+  </html>
