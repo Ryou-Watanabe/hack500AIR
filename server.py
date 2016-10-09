@@ -38,11 +38,11 @@ class Notification(Resource):
 			# print(kind)
 			params = {"kind" : kind}
 
-			r = s.post(url="http://172.24.245.214.:8080/api/attack", params=params)
+			r = s.post(url="http://172.24.245.214.:8080/api/client-attack", params=params)
 			return "200 OK"
 
 api.add_resource(Bot, '/api/bot')
-api.add_resource(Notification, '/api/notification')
+api.add_resource(Notification, '/api/server-notification')
 
 @app.after_request
 
