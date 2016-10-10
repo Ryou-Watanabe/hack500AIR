@@ -3,25 +3,25 @@
 ************************************/
 
 input[type=text]{
-   border-radius: 5px;
-   -moz-border-radius: 5px;
-   -webkit-border-radius: 5px;
-   -o-border-radius: 5px;
-   -ms-border-radius: 5px;
-   border:#a9a9a9 1px solid;
-   -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.2),0 0 2px rgba(0,0,0,0.3);
-   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),0 0 2px rgba(0,0,0,0.3);
-   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),0 0 2px rgba(0,0,0,0.3);
-   width:200px;
-   height:25px;
-   padding:0 3px;
+ border-radius: 5px;
+ -moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ -o-border-radius: 5px;
+ -ms-border-radius: 5px;
+ border:#a9a9a9 1px solid;
+ -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.2),0 0 2px rgba(0,0,0,0.3);
+ -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),0 0 2px rgba(0,0,0,0.3);
+ box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),0 0 2px rgba(0,0,0,0.3);
+ width:200px;
+ height:25px;
+ padding:0 3px;
 }
 input[type=text]:focus {
-   border:solid 1px #20b2aa;
+ border:solid 1px #20b2aa;
 }
 
 input[type=text], select {
-   outline: none;
+ outline: none;
 }
 
 .btn {
@@ -46,7 +46,7 @@ input[type=text], select {
     margin-right: -120px;
 }
 .chat-face img{
-　　width: 90px;
+    　　width: 90px;
     height: 90px;
     border-radius: 30px;
     border: 1px solid #ccc;
@@ -92,7 +92,7 @@ input[type=text], select {
     margin-left: -120px;
 }
 .chat-face2 img{
-　　width: 90px;
+    　　width: 90px;
     height: 90px;
     border-radius: 30px;
     border: 1px solid #ccc;
@@ -124,55 +124,55 @@ input[type=text], select {
     width: 0px;
     height: 0px;
     border-style: solid;
-   border-width: 10px 10px 10px 10px;
+    border-width: 10px 10px 10px 10px;
     border-color: transparent transparent transparent #BCF5A9;
- }
+}
 
- /*スマホの時は画像を小さく*/
- @media screen and (max-width: 440px){
- /*画像左側のチャット*/
- .chat-face {
-     float: left;
-     margin-right: -80px;
- }
- .chat-face img{
+/*スマホの時は画像を小さく*/
+@media screen and (max-width: 440px){
+   /*画像左側のチャット*/
+   .chat-face {
+       float: left;
+       margin-right: -80px;
+   }
+   .chat-face img{
       width: 60px;
-     height: 60px;
-     border-radius: 30px;
-     border: 1px solid #ccc;
-     box-shadow: 0 0 4px #ddd;
- }
- .chat-hukidashi {
-     display: inline-block;
-     padding: 10px 10px;
-     margin-left: 80px;
-     margin-top: 0px;
-     border-radius: 10px;
-     position: relative;
-     background-color: #D9F0FF;
- }
+      height: 60px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 4px #ddd;
+  }
+  .chat-hukidashi {
+   display: inline-block;
+   padding: 10px 10px;
+   margin-left: 80px;
+   margin-top: 0px;
+   border-radius: 10px;
+   position: relative;
+   background-color: #D9F0FF;
+}
 
- /*画像右側のチャット*/
- .chat-face2 {
-     float: right;
-     margin-left: -80px;
- }
- .chat-face2 img{
-     width: 60px;
-     height: 60px;
-     border-radius: 30px;
-     border: 1px solid #ccc;
-     box-shadow: 0 0 4px #ddd;
- }
+/*画像右側のチャット*/
+.chat-face2 {
+   float: right;
+   margin-left: -80px;
+}
+.chat-face2 img{
+   width: 60px;
+   height: 60px;
+   border-radius: 30px;
+   border: 1px solid #ccc;
+   box-shadow: 0 0 4px #ddd;
+}
 
- .chat-hukidashi2 {
-     display: inline-block;
-     padding: 10px 10px;
-     margin-right: 80px;
-     margin-top: 0px;
-     border-radius: 10px;
-     position: relative;
-     background-color: #BCF5A9;
-     float: right;
- }
- }
+.chat-hukidashi2 {
+   display: inline-block;
+   padding: 10px 10px;
+   margin-right: 80px;
+   margin-top: 0px;
+   border-radius: 10px;
+   position: relative;
+   background-color: #BCF5A9;
+   float: right;
+}
+}

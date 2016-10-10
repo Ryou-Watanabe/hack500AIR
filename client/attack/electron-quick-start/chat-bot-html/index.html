@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="style.css" media="all">
 
-    <title>chat room</title>
-  </head>
-  <body>
-    <div id="chatroom"></div>
+  <title>chat room</title>
+</head>
+<body>
 
-      <div class="post">
-          <input type="text" id="msg" value="" onKeyPress="Key_on(window.event.keyCode)" style="width:200px;"/>
-        <button type="button" value="send" class="btn" id="postForm" >Send</button>
-      </div>
+  <div id="chatroom"></div>
 
-    <script type="text/javascript" src="js/main.js"></script>
-    <!-- <script src="js/jquery.xdomainajax.js"></script> -->
-  </body>
+  <div class="post">
+    <input type="text" id="msg" value="" onKeyPress="Key_on(window.event.keyCode)" style="width:200px;"/>
+    <button type="button" value="send" class="btn" id="postForm" >Send</button>
+    <button type="button" value="send" class="btn" id="wait" >遅くなる</button>
+</div>
+
+<script type="text/javascript" src="js/main.js"></script>
+<!-- <script src="js/jquery.xdomainajax.js"></script> -->
+</body>
 </html>

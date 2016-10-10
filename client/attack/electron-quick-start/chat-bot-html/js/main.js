@@ -2,8 +2,15 @@ const $ = require('jquery');
 const express = require('express');
 
 const bodyParser = require('body-parser');
+var flg = 0;
 
 const app = express();
+
+$('#wait').click(function(event) {
+	/* Act on the event */
+	flg = 1;
+	console.log(flg)
+});
 
 app.use(bodyParser.urlencoded({extended : true }));
 app.use(bodyParser.json());
@@ -48,7 +55,13 @@ function addBot(txt)
 function Key_on(key)
 {
 	if(key == 13){
-		send();
+		if(flg === 1){
+			window.setTimeout(function(){
+				send2();
+			}, 3500);
+		} else {
+			send();
+		}
 	}
 }
 
@@ -68,6 +81,44 @@ function send()
 	var jsondata =  {
 		message: userText
 	};
+	$.ajax({
+		type: 'post',
+		url: url,
+		contentType:'application/json',
+		data: JSON.stringify(jsondata),
+		dataType:'json',
+		success: function(json_data) {
+			console.log(json_data);
+			addBot(json_data);
+			$('body').delay(100).animate({
+				scrollTop: $(document).height()
+			},1500);
+		},
+		error: function() {
+			alert('Server Error. Please try again later.');
+		},
+		complete: function() {
+		}
+	})
+}
+
+function send2()
+{
+	var url = 'http://172.24.245.214:5000/api/bot';
+	var userText = $("#msg").val();
+
+	if (userText === "") {
+		alert('テキストを入力してください');
+		return;
+	}
+
+	addUser(userText);
+	var old_msg = document.getElementById("msg");
+	old_msg.value = "";
+	var jsondata =  {
+		message: userText
+	};
+	
 	$.ajax({
 		type: 'post',
 		url: url,
