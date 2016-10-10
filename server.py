@@ -18,7 +18,7 @@ class Bot(Resource):
 		if request.headers['Content-Type'] == 'application/json':
 			message = request.json['message']
 			s = requests.session()
-			api_key = "2d798014ce4123136c50"
+			api_key = "PUT YOUR API_KEY"
 			url = "https://chatbot-api.userlocal.jp/api/chat?"
 
 			params = {
@@ -49,7 +49,7 @@ class GetMetroDelay(Resource):
 		s = requests.session()
 		metro_url = "https://api.tokyometroapp.jp/api/v2/datapoints?"
 		rdf_param = "odpt:TrainInformation"
-		apikey_param_metro = "632506ae17ec0c076425215e5d467e8d7497e5b84d1fa0b18347c2c9a35c86be"
+		apikey_param_metro = "PUT_YOUR_API_KEY"
 
 		params_metro = {
 		    "rdf:type": rdf_param,
